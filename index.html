@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Serpentis Nexus - Un jeu de serpent original avec mécaniques gravitationnelles">
+    <title>Serpentis Nexus</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Serpentis Nexus</h1>
+            <div class="game-stats">
+                <div class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Niveau:</span>
+                    <span id="level" class="stat-value">1</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Vies:</span>
+                    <span id="lives" class="stat-value">3</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="game-main">
+            <canvas id="gameCanvas"></canvas>
+            
+            <div class="mobile-controls" id="mobileControls">
+                <div class="dpad">
+                    <button class="dpad-btn dpad-up" data-direction="up">↑</button>
+                    <button class="dpad-btn dpad-left" data-direction="left">←</button>
+                    <button class="dpad-btn dpad-down" data-direction="down">↓</button>
+                    <button class="dpad-btn dpad-right" data-direction="right">→</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="action-btn" id="pauseBtn">Pause</button>
+                    <button class="action-btn" id="boostBtn">Boost</button>
+                </div>
+            </div>
+        </main>
+
+        <div class="game-hud">
+            <div class="power-up-indicator" id="powerUpIndicator">
+                <span class="power-up-name"></span>
+                <div class="power-up-timer"></div>
+            </div>
+            <div class="constellation-progress" id="constellationProgress">
+                <span class="constellation-label">Constellation:</span>
+                <div class="constellation-stars" id="constellationStars"></div>
+            </div>
+        </div>
+
+        <div class="game-menu" id="gameMenu">
+            <div class="menu-content">
+                <h2>Serpentis Nexus</h2>
+                <div class="menu-buttons">
+                    <button class="menu-btn" id="startBtn">Commencer</button>
+                    <button class="menu-btn" id="editorBtn">Éditeur</button>
+                    <button class="menu-btn" id="settingsBtn">Options</button>
+                    <button class="menu-btn" id="helpBtn">Aide</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="settings-panel" id="settingsPanel" style="display: none;">
+            <div class="panel-content">
+                <h3>Options</h3>
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="soundEnabled" checked> 
+                        Sons activés
+                    </label>
+                </div>
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="highContrast"> 
+                        Contraste élevé
+                    </label>
+                </div>
+                <div class="setting-group">
+                    <label>
+                        <input type="range" id="gameSpeed" min="1" max="10" value="5">
+                        Vitesse: <span id="speedValue">5</span>
+                    </label>
+                </div>
+                <button class="menu-btn" id="closeSettingsBtn">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
